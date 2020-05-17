@@ -8,6 +8,7 @@
   },
   "author": "Rajdeep Chandra",
   "license": "ISC",
+  "git":"https://github.com/Rajdeepc/use-debounce-hook.git",
   "dependencies": {
     "react": "^16.13.1"
   }
