@@ -11,16 +11,39 @@ npm i use-debounce --save
 ## How to use
 
 ```
-import useDebounce from "use-debounce";
+import React, { useState, useEffect } from "react";
+import {useDebounce} from "npm-use-debounce";
 
+export default function App() {
   const [textChange, setTextChange] = useState("");
+  const [countOfNetworkCall, setNetworkCallCount] = useState(0);
 
-    // textChange is the getter method of the input onChange method
   const debouncingInput = useDebounce(textChange, 500);
 
- useEffect(() => {
+  useEffect(() => {
     // can do network api calls here
+    if (debouncingInput) {
+      // do network calls here
+    }
   }, [debouncingInput]);
+
+  const onTextChange = e => {
+    setTextChange(e.target.value);
+  };
+
+  return (
+    <div className="App">
+      <div>
+        Search:{" "}
+        <input
+          type="text"
+          value={textChange}
+          onChange={event => onTextChange(event)}
+        />
+      </div>
+  );
+}
+
 ```
 
 ## Options
